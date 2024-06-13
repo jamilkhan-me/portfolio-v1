@@ -2,12 +2,13 @@ import React from "react";
 import { getNotes } from "@/utils/notes";
 import Link from "next/link";
 import Pagination from "@/components/pagination";
+import BookNote from "@/components/BookNote";
 
-export default async function BookNote({ searchParams }) {
+export default async function BookNotePage({ searchParams }) {
   const tags = searchParams.tags?.split(",");
   const order = searchParams.order ?? "newest";
   const page = searchParams.page ?? 1;
-  const limit = searchParams.limit ?? 3;
+  const limit = searchParams.limit ?? 6;
 
   const { notes, pageCount } = await getNotes({
     tags,
@@ -18,12 +19,19 @@ export default async function BookNote({ searchParams }) {
 
   return (
     <div>
-      <h1>Recent posts</h1>
-      <p>Here are my recent writtings</p>
+      <h1 className="mt-20 text-center tracking-wide text-2xl">
+        Welcome to my <br />
+        <span className="text-4xl font-bold "> Digital Bookshelf </span>
+      </h1>
+      <p className="text-center  font-light text-md  flex items-center justify-center px-2 my-5">
+        I&apos;m an avid reader, always looking to learn and grow. Here, I share
+        detailed notes and insights from the books I&apos;ve read, capturing the
+        key ideas and lessons that have inspired me along the way.
+      </p>
       <hr />
 
       <section>
-        <div className="my-8">
+        <div className="">
           Display&nbsp;
           {order === "newest" && (
             <Link href="/bookNote?order=oldest" className="underline">
@@ -36,15 +44,14 @@ export default async function BookNote({ searchParams }) {
             </Link>
           )}
         </div>
-        <ul>
+        <ul className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3">
           {notes.map((note) => (
             <li key={note.slug}>
               <Link
                 className="flex flex-row justify-between"
                 href={`/bookNote/${note.slug}`}
               >
-                <h1>{note.frontmatter.title}</h1>
-                <span>{note.frontmatter.date}</span>
+                <BookNote note={note} />
               </Link>
             </li>
           ))}

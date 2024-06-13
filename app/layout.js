@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={GeistMono.className}>
+    <html lang="en" className={GeistSans.className}>
       <body>
         <Navbar />
         <main className="max-w-4xl mx-auto">{children}</main>

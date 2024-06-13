@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="flex flex-row space-x-4 sm:space-x-8 items-center px-4 md:px-0 py-2  ">
         {navigation.map((project) => (
           <Link
-            className="font-bold flex items-center justify-center space-x-2"
+            className=" flex items-center justify-center space-x-2"
             key={project.title}
             href={project.link}
           >

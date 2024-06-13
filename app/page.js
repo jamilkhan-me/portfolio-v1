@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <section className="mb-8">
-        <h1>Welcome to my page!</h1>
+        <h1>Hey I'm Jamil Khan</h1>
         <p>My name is Jamil Khan, I am a web developer.</p>
         <p>
           Checkout my{" "}
