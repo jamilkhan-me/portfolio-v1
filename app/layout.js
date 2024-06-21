@@ -1,8 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import ProfileHeader from "@/components/ProfileHeader";
 
 export const metadata = {
   title: "Mr Khan blog",
@@ -12,8 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body>
-        <Navbar />
+      <body className="max-w-4xl mx-auto">
+        <ProfileHeader />
+
         <main className="max-w-4xl mx-auto">{children}</main>
       </body>
     </html>

@@ -17,7 +17,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div>
+      <div className="hidden md:block">
         <Link
           className="font-bold px-4 py-2   text-sm flex items-center justify-center space-x-2"
           href={""}
